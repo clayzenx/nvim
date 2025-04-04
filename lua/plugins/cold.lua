@@ -54,7 +54,7 @@ return {
           Key = " ",
           Keyword = " ",
           Method = "󰊕 ",
-          Module = "sss",
+          Module = " ",
           Namespace = "󰦮 ",
           Null = " ",
           Number = "󰎠 ",
