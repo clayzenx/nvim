@@ -64,8 +64,15 @@ return {
       sources = {
         -- adding any nvim-cmp sources here will enable them
         -- with blink.compat
-        compat = {},
+        compat = { "codeium" },
         default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+          codeium = {
+            kind = "Codeium",
+            score_offset = 100,
+            async = true,
+          },
+        },
       },
 
       cmdline = {
