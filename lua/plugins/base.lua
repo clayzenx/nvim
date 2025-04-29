@@ -1,6 +1,7 @@
 return {
-  -- add cold colorscheme
+  -- add colorschemes
   { "gmr458/cold.nvim" },
+  { "RRethy/base16-nvim" },
 
   -- Configure LazyVim to load cold
   {
