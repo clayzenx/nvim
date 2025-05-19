@@ -51,7 +51,7 @@ return {
             columns = {
               { "kind" },
               { "kind_icon" },
-              { "label", "label_description", gap = 1 },
+              { "label" },
             },
           },
         },
@@ -80,12 +80,12 @@ return {
             name = "copilot",
             module = "blink-cmp-copilot",
             kind = "Copilot",
-            score_offset = 100,
+            score_offset = -10,
             async = true,
           },
           codeium = {
             kind = "Codeium",
-            score_offset = 100,
+            score_offset = -11,
             async = true,
           },
         },
