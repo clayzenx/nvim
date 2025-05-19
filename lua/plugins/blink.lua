@@ -49,9 +49,32 @@ return {
           draw = {
             treesitter = { "lsp" },
             columns = {
-              { "kind" },
               { "kind_icon" },
               { "label" },
+            },
+            components = {
+              kind_icon = {
+                text = function(ctx)
+                  local icon = ctx.kind_icon
+                  if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  elseif ctx.source_name == "copilot" then
+                    icon = "" -- Copilot icon (nf-dev-copilot)
+                  elseif ctx.source_name == "codeium" then
+                    icon = "" -- Codeium icon (nf-custom-codeium, or pick a suitable one)
+                  else
+                    icon = require("lspkind").symbolic(ctx.kind, {
+                      mode = "symbol",
+                    })
+                  end
+
+                  return icon .. ctx.icon_gap
+                end,
+                highlight = "Pmenu",
+              },
             },
           },
         },
@@ -105,6 +128,9 @@ return {
     ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
     config = function(_, opts)
       -- setup compat sources
+      vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { link = "CmpItemKindAI" })
+      vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { link = "CmpItemKindAI" })
+
       local enabled = opts.sources.default
       for _, source in ipairs(opts.sources.compat or {}) do
         opts.sources.providers[source] = vim.tbl_deep_extend(
