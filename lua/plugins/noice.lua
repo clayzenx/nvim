@@ -40,6 +40,7 @@ return {
               { find = "; before #%d+" },
             },
           },
+          opts = { focus = true, replace = true },
           view = "mini",
         },
       },
