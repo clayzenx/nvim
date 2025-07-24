@@ -4,7 +4,7 @@
 
 vim.g.snacks_animate = false
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.diagnostic.config({
   virtual_text = false,
