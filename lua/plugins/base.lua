@@ -1,6 +1,8 @@
 return {
   -- add colorschemes
   { "gmr458/cold.nvim" },
+  { "olimorris/onedarkpro.nvim" },
+  { "folke/tokyonight.nvim" },
   {
     "gmr458/vscode_modern_theme.nvim",
     lazy = false,
